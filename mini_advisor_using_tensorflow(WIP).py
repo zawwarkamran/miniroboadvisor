@@ -62,9 +62,4 @@ n_targets = 1
 
 hidden_1 = tf.compat.v1.Variable(weight_initializer)
 
-
-
-
-
-
-
+# WIP
