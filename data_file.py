@@ -3,11 +3,11 @@ import pandas as pd
 from functools import reduce
 from pandas.plotting import register_matplotlib_converters
 register_matplotlib_converters()
-os.chdir("/Users/zawwark/Documents/PycharmProjects/ML/ETF ROBO STUFF/ETFs")
+os.chdir("directory with the data")
 
 
 data_lst = []
-for i in os.listdir('/Users/zawwark/Documents/PycharmProjects/ML/ETF ROBO STUFF/ETFs'):
+for i in os.listdir('directory with the data'):
     if i.endswith('.us.txt'):
         g = pd.read_csv(i, sep=",")
         for name in g.columns:
@@ -17,13 +17,10 @@ for i in os.listdir('/Users/zawwark/Documents/PycharmProjects/ML/ETF ROBO STUFF/
         g = g.rename(columns={'Close': i})
         data_lst.append(g)
 
-os.chdir('/Users/zawwark/Documents/PycharmProjects/ML/ETF ROBO STUFF')
+os.chdir('directory where you want to save the merged data')
 
 df_merged = reduce(lambda left, right: pd.merge(left, right, on=['Date'],
                                                 how='outer'),
                    data_lst).fillna('void')
 
 df_merged.to_csv('merged.txt', sep=',', na_rep='.', index=False)
-
-
-
