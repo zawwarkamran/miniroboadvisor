@@ -37,16 +37,8 @@ dfwithytd = pd.DataFrame((data_filtered.pct_change().std())
 dfwithytd['5YearReturn'] = YTD
 dfwithytd['5YearAverageDailyReturn'] = avg_daily_percentage_change
 dfwithytd.drop('soxl.us.txt', inplace=True)
-# dfwithytd.drop('fas.us.txt', inplace=True)
-# dfwithytd.drop('tqqq.us.txt', inplace=True)
-# dfwithytd.drop('xiv.us.txt', inplace=True)
-# dfwithytd.drop('svxy.us.txt', inplace=True)
-# dfwithytd.drop('umdd.us.txt', inplace=True)
-# dfwithytd.drop('upro.us.txt', inplace=True)
-# print(dfwithytd['5YearReturn'].idxmax())
-#
-# sns.distplot(dfwithytd['ADSD'], bins=70)
-# plt.show()
+
+
 Y = dfwithytd.values
 # Y = scaler.fit_transform(Y)
 
@@ -129,7 +121,7 @@ palette_2 = sns.color_palette('bright', (len(nodes_lst)))
 # plt.ylabel('Variance in Daily Price Change')
 # plt.show()
 
-# #
+
 # showdef volatility_min(val, etf_name, df_1, df_2):
 #     assert len(val) == len(etf_name)
 #     lookup = dict()
